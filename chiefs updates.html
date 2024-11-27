@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiefs Updates </title>
+ <link rel="icon" href="/Users/matthewthomas/chiefs/chiefs logo.icon">
+  
+  
+  <style>
+    
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(255, 255, 255);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #e31837;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1rem;
+    }
+    .tabs {
+      display: flex;
+      background-color: #ffb81c;
+      overflow: auto;
+      white-space: nowrap;
+    }
+    .tabs button {
+      flex: 1;
+      background-color: #e31837;
+      color: #fff;
+      border: none;
+      padding: 15px 20px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .tabs button:hover {
+      background-color: #ffb81c;
+      color: #e31837;
+    }
+    .tabs button.active {
+      background-color: #fff;
+      color: #e31837;
+      border-bottom: 3px solid #ffb81c;
+    }
+    .content {
+      display: none;
+      padding: 20px;
+      background-color: #fff;
+      color: #333;
+    }
+    .content.active {
+      display: block;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #e31837;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+    li:hover {
+      background-color: #ffb81c;
+      color: #fff;
+      transform: scale(1.02);
+      cursor: pointer;
+    }
+    li::marker {
+      content: "▶";
+      color: #e31837;
+      font-size: 1.2rem;
+    }
+    #hi {
+        padding-bottom: 5px;
+
+    }
+    #detailsModal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border: 2px solid #e31837;
+      border-radius: 10px;
+      z-index: 1000;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 500px;
+    }
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    #detailsModal h2 {
+      color: #e31837;
+    }
+    #detailsModal button {
+      background-color: #e31837;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 15px;
+    }
+    #detailsModal button:hover {
+      background-color: #ffb81c;
+      color: #e31837;
+    }
+  </style>
+  
+</head>
+<body>
+  
+    
+    <img "hi" src="/Users/matthewthomas/chiefs/logo.icon.png" alt=" ">
+  <header>
+    <h1>Chiefs Updates</h1>
+    <p>Stay updated with the latest Chiefs news and happenings!</p>
+  </header>
+  <div class="tabs">
+    <button onclick="openTab('games')" class="active">Game Info</button>
+    <button onclick="openTab('trades')">Trade Info</button>
+    <button onclick="openTab('cuts')">Cuts Info</button>
+    <button onclick="openTab('other')">Other Updates</button>
+  </div>
+  <div id="games" class="content active">
+    <h2>Game Info</h2>
+    <ul>
+      <li onclick="showDetails('game1')"><strong>November 19, 2024:</strong> Chiefs lost 30-21 to the Bills.</li>
+      <li onclick="showDetails('game2')"><strong>October 21, 2024:</strong> Chiefs defeated 49ers 28-18.</li>
+      <li onclick="showDetails('game3')"><strong>October 8, 2024:</strong> Chiefs beat Saints 26-13.</li>
+      <li onclick="showDetails('game4')"><strong>December 3, 2024:</strong> Chiefs play the Broncos in a key divisional matchup.</li>
+    </ul>
+  </div>
+  <div id="trades" class="content">
+    <h2>Trade Info</h2>
+   
+    <ul>
+      <li onclick="showDetails('trade1')"><strong>March 29, 2024:</strong> Traded L'Jarius Sneed to the Titans.</li>
+      <li onclick="showDetails('trade2')"><strong>October 24, 2024:</strong> Acquired DeAndre Hopkins from the Titans.</li>
+      <li onclick="showDetails('trade3')"><strong>July 15, 2024:</strong> Traded up in the draft to secure a new offensive lineman.</li>
+    </ul>
+  </div>
+  <div id="cuts" class="content">
+    <h2>Cuts Info</h2>
+    <ul>
+      <li onclick="showDetails('cut1')"><strong>November 19, 2024:</strong> Released veteran WR from the practice squad.</li>
+      <li onclick="showDetails('cut2')"><strong>June 24, 2024:</strong> Released Isaiah Buggs (DT).</li>
+    </ul>
+  </div>
+  <div id="other" class="content">
+    <h2>Other Updates</h2>
+    <ul>
+      <li onclick="showDetails('other1')"><strong>November 22, 2024:</strong> JuJu Smith-Schuster celebrated his 28th birthday.</li>
+      <li onclick="showDetails('other2')"><strong>November 21, 2024:</strong> Chiefs Hall of Fame presence set to grow in 2025.</li>
+    </ul>
+  </div>
+  <div id="detailsModal">
+    <h2 id="detailTitle"></h2>
+    <p id="detailContent"></p>
+    <button onclick="closeDetails()">Close</button>
+  </div>
+  <div id="overlay" onclick="closeDetails()"></div>
+  <script>
+    function openTab(tabName) {
+      const tabs = document.querySelectorAll('.content');
+      const buttons = document.querySelectorAll('.tabs button');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(button => button.classList.remove('active'));
+
+      document.getElementById(tabName).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function showDetails(id) {
+      const details = {
+        game1: { title: "Game vs Bills", content: "The Chiefs lost to the Bills, 30-21, ending their winning streak." },
+        game2: { title: "Game vs 49ers", content: "The Chiefs stayed undefeated with a 28-18 win over the 49ers." },
+        game3: { title: "Game vs Saints", content: "The Chiefs secured a victory against the Saints on MNF, 26-13." },
+        game4: { title: "Upcoming Broncos Game", content: "The Chiefs are set to face the Broncos in a divisional clash on December 3." },
+        trade1: { title: "Trade Alert", content: "L'Jarius Sneed was traded to the Titans for future picks." },
+        trade2: { title: "DeAndre Hopkins Trade", content: "The Chiefs acquired star WR DeAndre Hopkins from the Titans." },
+        trade3: { title: "Draft Trade", content: "The Chiefs traded up to secure a highly sought-after offensive lineman in the 2024 draft." },
+        cut1: { title: "Player Cut", content: "A veteran WR was released from the practice squad to make room for younger talent." },
+        cut2: { title: "Defensive Tackle Release", content: "Isaiah Buggs (DT) was released to free up cap space." },
+        other1: { title: "JuJu's Birthday", content: "JuJu Smith-Schuster celebrated his 28th birthday with teammates." },
+        other2: { title: "Hall of Fame", content: "The Chiefs Hall of Fame will induct new players in 2025." }
+      };
+
+      const detail = details[id];
+      if (detail) {
+        document.getElementById('detailTitle').innerText = detail.title;
+        document.getElementById('detailContent').innerText = detail.content;
+        document.getElementById('detailsModal').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+      }
+    }
+
+    function closeDetails() {
+      document.getElementById('detailsModal').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
